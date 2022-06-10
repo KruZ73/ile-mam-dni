@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            size: 120%;
+        }
+        #data, #btn, #wynik {
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+
+    <h1>Policz ile dni upłynęło od podanej daty</h1>
+
+    <div>
+        <label for="start">Podaj datę: </label> <br />
+        <input type="date" id="data" name="data">
+    </div>
+
+    <div>
+        <button id="btn" onclick="start()">Oblicz</button>
+    </div>
+
+    <div>
+        <label for="wynik">Tyle dni upłynęło: </label> <br />
+        <input type="text" id="wynik" name="wynik" readonly>
+    </div>
+
+    <script>
+        function start() {
+            var dzis = new Date();
+            var data = document.getElementById("data").valueAsDate;
+            document.getElementById("wynik").value = Math.floor((dzis.getTime() - data.getTime()) / 1000 / 60 / 60 / 24);
+        }
+    </script>
+
+</body>
+</html>
